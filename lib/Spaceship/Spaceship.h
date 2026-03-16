@@ -50,12 +50,12 @@ private:
     // State
     OverlayMode overlayMode;
 
-    // Speed model â slider is now throttle
+    // Speed model – slider is now throttle
     float speed;
     float speedTarget;
     float cruiseSpeed;
 
-    // Turning model â left/right buttons drive yaw
+    // Turning model – left/right buttons drive yaw
     float yaw;
     float yawRate;
     float yawRateTarget;

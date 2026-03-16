@@ -230,7 +230,7 @@ void Spaceship::updatePhysics(float dt) {
     float yawRatePush = yawRate * 0.15f;
 
     for (int i = 0; i < kStarCount; ++i) {
-        // Forward motion â stars come towards us
+        // Forward motion – stars come towards us
         float dz = speed * dt * 0.55f;
         if (stars[i].kind == 1) dz *= 1.8f;
         stars[i].z -= dz;
@@ -258,6 +258,7 @@ void Spaceship::updatePhysics(float dt) {
     uint8_t glow = (uint8_t)clampf((speed - speedMin) / (speedMax - speedMin) * 8.0f, 0.0f, 8.0f);
     HAL::setRgbLed(pixel_Front_Top, 0, glow, 0, 0);
     HAL::setRgbLed(pixel_Front_Middle, 0, 0, glow, 0);
+    markDirty();
 }
 
 void Spaceship::drawScene() {
@@ -267,7 +268,7 @@ void Spaceship::drawScene() {
     const int16_t vpX = 64;
     const int16_t vpY = 32;
 
-    // Projection scale â these control the FOV.
+    // Projection scale – these control the FOV.
     // Lower values = wider FOV = stars spread more across the screen.
     // With reverse-projection in resetStar using matching values,
     // stars are guaranteed to spawn across the full display area.
